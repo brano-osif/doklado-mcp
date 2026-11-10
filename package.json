@@ -1,0 +1,32 @@
+{
+  "name": "doklado-mcp",
+  "version": "1.3.3",
+  "description": "Unofficial MCP server for Doklado invoicing and Slovak eFaktúra (Peppol)",
+  "scripts": {
+    "test": "node --env-file-if-exists=.env.test test.ts",
+    "check": "tsc",
+    "bundle": "rm -rf build && tsc -p tsconfig.build.json && cp openapi.json manifest.json package.json package-lock.json LICENSE build/ && npm ci --omit=dev --prefix build --silent && mcpb pack build doklado-mcp.mcpb",
+    "format": "prettier --write src test.ts",
+    "lint": "prettier --check src test.ts"
+  },
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2"
+  },
+  "devDependencies": {
+    "@anthropic-ai/mcpb": "^2.1.2",
+    "@types/node": "^26.6.6",
+    "prettier": "^3.9.10",
+    "typescript": "^7.0.2"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brano-osif/doklado-mcp.git"
+  },
+  "homepage": "https://github.com/brano-osif/doklado-mcp"
+}
