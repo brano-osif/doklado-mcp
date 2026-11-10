@@ -159,6 +159,10 @@ It only reads data and checks errors. It does not issue invoices or send email.
 2. Commit, then tag and push: `git tag v1.4.0 && git push origin v1.4.0`.
 3. GitHub Actions type checks, builds `doklado-mcp.mcpb` and attaches it to a new release. It fails if the tag and the two versions differ.
 
+## Contributing
+
+Issues and pull requests are welcome, see [CONTRIBUTING.md](CONTRIBUTING.md). Report security problems privately as described in [SECURITY.md](SECURITY.md).
+
 ## Disclaimer
 
 Unofficial project, not affiliated with Doklado s.r.o. `openapi.json` is Doklado's public API specification from [api-doc.doklado.sk](https://api-doc.doklado.sk), included so tool schemas match the API.

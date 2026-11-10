@@ -1,0 +1,16 @@
+name: Feature request
+description: A new tool or an improvement
+labels: [enhancement]
+body:
+  - type: textarea
+    id: use-case
+    attributes:
+      label: What you want to do
+      description: The task you would like Claude to handle with Doklado.
+    validations:
+      required: true
+  - type: textarea
+    id: api
+    attributes:
+      label: Doklado API
+      description: The endpoint it needs, if you know it (Public API or SAPI+).

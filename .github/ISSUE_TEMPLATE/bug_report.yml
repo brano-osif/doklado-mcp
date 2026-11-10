@@ -1,0 +1,48 @@
+name: Bug report
+description: Something does not work as described
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you asked Claude to do, which tool ran and what went wrong.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Error message
+      description: The tool's error output. Remove API keys, tokens and customer data first.
+      render: text
+  - type: dropdown
+    id: client
+    attributes:
+      label: Client
+      options:
+        - Claude Desktop (extension)
+        - Claude Desktop (manual config)
+        - Claude Code
+        - Other MCP client
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Doklado environment
+      options:
+        - Sandbox
+        - Production
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: doklado-mcp version
+      placeholder: 1.3.3

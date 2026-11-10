@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/brano-osif/doklado-mcp/security/advisories/new
+    about: Report security problems privately.
+  - name: Doklado account or API questions
+    url: https://docs.doklado.sk
+    about: This project is unofficial. Doklado's own docs and support cover accounts, pricing and eFaktúra activation.
