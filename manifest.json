@@ -1,0 +1,141 @@
+{
+  "manifest_version": "0.3",
+  "name": "doklado-mcp",
+  "display_name": "Doklado MCP",
+  "version": "1.3.3",
+  "description": "Unofficial Doklado connector: invoices, PDFs and Slovak eFaktúra (Peppol) for Claude.",
+  "long_description": "Unofficial community extension, not made or supported by Doklado s.r.o. Find and update invoices, download PDFs, email invoices, and send or receive eFaktúra over Peppol through your Doklado account. eFaktúra tools appear when SAPI+ credentials are filled in.",
+  "author": {
+    "name": "Branislav Osif",
+    "url": "https://osif.digital"
+  },
+  "license": "MIT",
+  "keywords": [
+    "doklado",
+    "invoice",
+    "faktura",
+    "efaktura",
+    "peppol",
+    "slovakia"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {
+        "DOKLADO_API_KEY": "${user_config.api_key}",
+        "DOKLADO_ICO": "${user_config.ico}",
+        "DOKLADO_ISSUE": "${user_config.allow_issue}",
+        "DOKLADO_SAPI_CLIENT_ID": "${user_config.sapi_client_id}",
+        "DOKLADO_SAPI_SECRET": "${user_config.sapi_secret}",
+        "DOKLADO_SANDBOX": "${user_config.sandbox}"
+      }
+    }
+  },
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "API key",
+      "description": "Doklado → Prehľad účtu → API prepojenia",
+      "required": true,
+      "sensitive": true
+    },
+    "ico": {
+      "type": "string",
+      "title": "IČO",
+      "description": "IČO of your company in Doklado",
+      "required": true
+    },
+    "sandbox": {
+      "type": "boolean",
+      "title": "Test mode (Doklado sandbox)",
+      "description": "Use the test account at efaktura-sandbox.doklado.sk instead of your real Doklado. The keys must come from the same place.",
+      "default": false
+    },
+    "allow_issue": {
+      "type": "boolean",
+      "title": "Allow issuing invoices",
+      "description": "Lets Claude create new invoices. Needs the module \"Vystavenie faktúr cez API\" turned on in Doklado (Správa modulov).",
+      "default": false
+    },
+    "sapi_client_id": {
+      "type": "string",
+      "title": "SAPI+ Client ID (optional, for eFaktúra)",
+      "description": "Doklado → Prehľad účtu → SAPI+ prepojenia",
+      "required": false
+    },
+    "sapi_secret": {
+      "type": "string",
+      "title": "SAPI+ Client Secret (optional, for eFaktúra)",
+      "description": "Shown once when the SAPI+ connection is created",
+      "required": false,
+      "sensitive": true
+    }
+  },
+  "tools": [
+    {
+      "name": "list_documents",
+      "description": "List invoices and receipts with filters"
+    },
+    {
+      "name": "get_document",
+      "description": "Full detail of one document"
+    },
+    {
+      "name": "update_issued_invoice",
+      "description": "Edit an issued invoice"
+    },
+    {
+      "name": "get_invoice_pdf",
+      "description": "Save the invoice PDF to Downloads"
+    },
+    {
+      "name": "send_invoice_by_email",
+      "description": "Email the invoice PDF"
+    },
+    {
+      "name": "issue_invoice",
+      "description": "Issue a new invoice (when allowed)"
+    },
+    {
+      "name": "einvoice_lookup",
+      "description": "Can a company receive eFaktúra (by DIČ)"
+    },
+    {
+      "name": "send_einvoice",
+      "description": "Send an eFaktúra over Peppol"
+    },
+    {
+      "name": "einvoice_list_received",
+      "description": "List received eFaktúry"
+    },
+    {
+      "name": "einvoice_get_received",
+      "description": "Save a received eFaktúra XML to Downloads"
+    },
+    {
+      "name": "einvoice_acknowledge",
+      "description": "Mark a received eFaktúra as processed"
+    }
+  ],
+  "compatibility": {
+    "platforms": [
+      "darwin",
+      "win32",
+      "linux"
+    ],
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brano-osif/doklado-mcp"
+  },
+  "homepage": "https://github.com/brano-osif/doklado-mcp",
+  "support": "https://github.com/brano-osif/doklado-mcp/issues"
+}
