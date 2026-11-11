@@ -13,6 +13,7 @@ import {
   einvoiceGetReceived,
   einvoiceListReceived,
   einvoiceLookup,
+  einvoiceSendStatus,
   sendEinvoiceTool,
 } from './einvoice.ts';
 
@@ -28,6 +29,7 @@ const invoiceTools = [
 const einvoiceTools = [
   einvoiceLookup,
   sendEinvoiceTool,
+  einvoiceSendStatus,
   einvoiceListReceived,
   einvoiceGetReceived,
   einvoiceAcknowledge,

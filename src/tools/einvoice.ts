@@ -1,6 +1,7 @@
 import {
   acknowledgeReceived,
   getReceived,
+  getSendStatus,
   listReceived,
   lookupParticipant,
   sendEinvoice,
@@ -55,6 +56,15 @@ export const sendEinvoiceTool: Tool = {
     ['xml', 'receiverDic', 'documentId'],
   ),
   run: args => sendEinvoice(args as EinvoiceToSend),
+};
+
+export const einvoiceSendStatus: Tool = {
+  name: 'einvoice_send_status',
+  description: descriptions.einvoice_send_status,
+  inputSchema: objectSchema({ providerDocumentId: { type: 'string' } }, [
+    'providerDocumentId',
+  ]),
+  run: args => getSendStatus(String(args.providerDocumentId)),
 };
 
 export const einvoiceListReceived: Tool = {
