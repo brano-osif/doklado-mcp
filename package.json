@@ -1,6 +1,6 @@
 {
   "name": "doklado-mcp",
-  "version": "1.3.3",
+  "version": "1.4.0",
   "description": "Unofficial MCP server for Doklado invoicing and Slovak eFaktúra (Peppol)",
   "scripts": {
     "test": "node --env-file-if-exists=.env.test test.ts",

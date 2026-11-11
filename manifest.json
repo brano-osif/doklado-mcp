@@ -2,7 +2,7 @@
   "manifest_version": "0.3",
   "name": "doklado-mcp",
   "display_name": "Doklado MCP",
-  "version": "1.3.3",
+  "version": "1.4.0",
   "description": "Unofficial Doklado connector: invoices, PDFs and Slovak eFaktúra (Peppol) for Claude.",
   "long_description": "Unofficial community extension, not made or supported by Doklado s.r.o. Find and update invoices, download PDFs, email invoices, and send or receive eFaktúra over Peppol through your Doklado account. eFaktúra tools appear when SAPI+ credentials are filled in.",
   "author": {
