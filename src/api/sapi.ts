@@ -24,7 +24,7 @@ import { fetchOwnDic } from './doklado.ts';
 
 const sapiHints: Hints = {
   ...commonHints,
-  409: 'This invoice number was already submitted to this customer. Do not resend, check its status in the Doklado web app. If the earlier attempt was rejected (422) and only the fixed XML gets 409, contact Doklado support.',
+  409: 'This invoice number was already submitted to this customer. Do not resend, check it with einvoice_send_status. If the earlier attempt was rejected (422) and only the fixed XML gets 409, contact Doklado support.',
   422: 'The XML failed e-invoice (Peppol BIS 3) validation. Fix the reported issues.',
   423: 'SAPI client is temporarily locked.',
   503: 'Peppol network temporarily unavailable. Safe to retry later.',
@@ -150,6 +150,13 @@ export function acknowledgeReceived(documentId: string) {
     method: 'POST',
     path: `/sapi/document/receive/${encodeURIComponent(documentId)}/acknowledge`,
     mutating: true,
+  });
+}
+
+export function getSendStatus(providerDocumentId: string) {
+  return sapi({
+    method: 'GET',
+    path: `/sapi-plus/document/send/${encodeURIComponent(providerDocumentId)}/status`,
   });
 }
 

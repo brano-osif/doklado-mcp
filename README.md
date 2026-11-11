@@ -97,6 +97,7 @@ Keys are per environment. A sandbox key does not work in production. Sandbox web
 | `issue_invoice` | Issue a new invoice (only with `DOKLADO_ISSUE=true`) |
 | `einvoice_lookup` | Can a company receive eFaktúra? (by DIČ) |
 | `send_einvoice` | Send a Peppol BIS 3 UBL invoice or credit note |
+| `einvoice_send_status` | Delivery status of a sent eFaktúra and its report to Finančná správa |
 | `einvoice_list_received` | List received eFaktúry |
 | `einvoice_get_received` | Save a received eFaktúra XML to `~/Downloads` |
 | `einvoice_acknowledge` | Mark a received eFaktúra as processed |

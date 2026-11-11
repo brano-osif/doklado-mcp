@@ -47,10 +47,13 @@ export const descriptions = {
     'units as UN/ECE codes (HUR hour, MON month, C62 piece).',
     'Non-VAT-payer: TaxCategory O with TaxExemptionReasonCode VATEX-EU-O and reason "Neplatiteľ DPH", 0.00 tax, no Percent, no seller/buyer VAT IDs.',
     'The receiver is looked up by DIČ first.',
-    'Response 202/ACCEPTED only means Doklado accepted it for processing, not delivered: check delivery in the Doklado web app.',
+    'Response 202/ACCEPTED only means Doklado accepted it for processing, not delivered: check delivery with einvoice_send_status and the returned providerDocumentId.',
     'Resending the same invoice number to the same customer is safe, it is never delivered twice (same Idempotency-Key).',
     'A 422 lists validation errors to fix.',
   ].join(' '),
+
+  einvoice_send_status:
+    'Delivery status of a sent e-invoice, by the providerDocumentId that send_einvoice returned (not the invoice number). delivery: QUEUED, PROCESSING, RETRYING, SENT, DELIVERED_CONFIRMED (done), DELIVERED_UNCONFIRMED, REJECTED, FAILED or UNKNOWN. taxReporting is the separate report to the Slovak tax authority (Finančná správa): ACCEPTED means it was received. Read-only. A failure here is not a reason to resend.',
 
   einvoice_list_received:
     'List e-invoices received via Peppol (metadata only). status RECEIVED = not yet acknowledged. For the next page pass nextPageToken as pageToken. No nextPageToken means no more pages.',
